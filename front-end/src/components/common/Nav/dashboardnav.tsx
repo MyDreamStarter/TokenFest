@@ -53,7 +53,7 @@ const DashboardNav: FC = () => {
           />
         </div>
         <div className="text-white text-xl font-semibold">
-          <a href="/">SprkHaus</a>
+          <a href="/">TokenFest</a>
         </div>
       </div>
 

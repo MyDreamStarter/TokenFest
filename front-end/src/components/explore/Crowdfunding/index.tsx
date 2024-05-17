@@ -255,7 +255,7 @@ const Crowdfunding = () => {
                   className="h-full bg-blue-500 rounded"
                 ></div>
               </div>
-              <p>{2 / 5} ETH</p>
+              <p>{2 / 5} USDC</p>
             </div>
           )}
         </div>
