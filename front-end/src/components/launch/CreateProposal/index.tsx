@@ -32,7 +32,7 @@ const CreateProposal = () => {
 
         <div className="" style={{
           backgroundImage: `url('/form.png')`, backgroundSize: 'cover',
-          height: '730px',
+          height: '780px',
           width: '780px',
         }}>
           <div className="flex gap-2 items-center p-6 px-16">

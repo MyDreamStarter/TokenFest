@@ -13,7 +13,6 @@ export default function Home() {
       <main className="flex" style={{
         backgroundImage: `url('/home.png')`, backgroundSize: 'cover',
         height: '710px',
-        width: '1515px',
       }}>
          <div className="justify-center items-center h-[50px] w-[150px] my-10 mx-10   ">
           <button ><ConnectWallet 

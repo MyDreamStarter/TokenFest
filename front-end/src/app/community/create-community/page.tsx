@@ -9,7 +9,6 @@ const page = () => {
       <div className="flex flex-col" style={{
         backgroundImage: `url('/communityback.png')`, backgroundSize: 'cover',
         height: '1050px',
-        width: '1519px',
       }}>
         <div className='flex h-[480px] w-[790px] mt-8 mx-96 rounded-lg border border-black opacity-80 bg-blue-200 mix-blend-darken backdrop-blur-2 p-8'>
           <div className='opacity-100' style={{
