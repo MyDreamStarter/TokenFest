@@ -52,19 +52,21 @@ const Ongoing = () => {
   return (
     <>
       <Nav3 />
-      <div className="flex justify-center p-11"
-       style={{ background: "#BDE3F0" }}>
-        <div>
-          {/* --------------------------------------- proposal card -------------------  */}
-          <div className="w-[500px] text-lg  border rounded-md py-10 px-10 max-w-xl flex flex-col gap-5 shadow border-gray-600 shadow-2xl mt-14" style={{background: "#0F4C81"}}>
+      <div className="flex justify-center p-11" style={{ background: '#BDE3F0' }}>
+        <div className="max-w-screen-lg w-full">
+          {/* --------------------------------------- proposal card ------------------- */}
+          <div
+            className="w-full md:w-[500px] text-lg border rounded-md py-10 px-10 max-w-xl flex flex-col gap-5 shadow border-gray-600 shadow-2xl mt-14 mx-0 md:mx-60"
+            style={{ background: '#0F4C81' }}
+          >
             <div className="text-white text-2xl mb-1 font-semibold">{proposal.title}</div>
-            <div className="text-white ">{proposal.description}</div>
-            <div className="text-white">Price Per NFT: {proposal.priceperNFT} USDC </div>
+            <div className="text-white">{proposal.description}</div>
+            <div className="text-white">Price Per NFT: {proposal.priceperNFT} USDC</div>
             <div className="text-white">Funding Goal: {proposal.funding_goal} USDC</div>
             <div className="text-white">Valid Till: {proposal.date.$d.toDateString()}</div>
             <div className="text-white">Created by: {address}</div>
 
-            {/* --------------------------------------  */}
+            {/* -------------------------------------- */}
             <form onSubmit={handleSubmit}>
               <div className="flex gap-6 justify-center">
                 <div>
@@ -73,13 +75,13 @@ const Ongoing = () => {
                       type="radio"
                       value="dislike"
                       id="response"
-                      checked={selectedValue === "dislike"}
-                      onChange={() => setSelectedValue("dislike")}
+                      checked={selectedValue === 'dislike'}
+                      onChange={() => setSelectedValue('dislike')}
                       required
                       className="hidden"
                     />
                     <div
-                      className={`w-12 h-12 flex justify-center items-center text-lg hover:text-2xl hover:border-blue-500 py-2 border  rounded-sm cursor-pointer ${selectedValue === "dislike" && "border-blue-500 "
+                      className={`w-12 h-12 flex justify-center items-center text-lg hover:text-2xl hover:border-blue-500 py-2 border  rounded-sm cursor-pointer ${selectedValue === 'dislike' && 'border-blue-500 '
                         }`}
                     >
                       👎
@@ -92,13 +94,13 @@ const Ongoing = () => {
                       id="response"
                       type="radio"
                       value="like"
-                      checked={selectedValue === "like"}
-                      onChange={() => setSelectedValue("like")}
+                      checked={selectedValue === 'like'}
+                      onChange={() => setSelectedValue('like')}
                       required
                       className="hidden"
                     />
                     <div
-                      className={`w-12 h-12 flex  text-lg justify-center items-center hover:text-2xl  hover:border-blue-500 py-2 border  rounded-sm cursor-pointer ${selectedValue === "like" && "border-blue-500"
+                      className={`w-12 h-12 flex  text-lg justify-center items-center hover:text-2xl  hover:border-blue-500 py-2 border  rounded-sm cursor-pointer ${selectedValue === 'like' && 'border-blue-500'
                         }`}
                     >
                       👍
@@ -108,16 +110,14 @@ const Ongoing = () => {
               </div>
 
               <div className="flex justify-center mt-4">
-                <Button variant="primary" size="lg" type="submit"
-                style={{background: "white" , color:"black" , borderRadius:"999px"}}>
+                <Button variant="primary" size="lg" type="submit" style={{ background: 'white', color: 'black', borderRadius: '999px' }}>
                   Vote
                 </Button>
               </div>
             </form>
-            {/* --------------------------------------  */}
+            {/* -------------------------------------- */}
           </div>
-
-          {/* --------------------------------------- proposal card -------------------  */}
+          {/* --------------------------------------- proposal card ------------------- */}
         </div>
       </div>
     </>

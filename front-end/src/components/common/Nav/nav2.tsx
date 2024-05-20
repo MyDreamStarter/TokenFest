@@ -1,18 +1,9 @@
 import React, { FC, useState } from "react";
-import { SiWebmoney } from "react-icons/si";
-import Button from "@/components/common/Button";
 import Link from "next/link";
 import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
-import Box from "@mui/material/Box";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import List from "@mui/material/List";
-// import { useRouter } from 'next/navigation';
+
 
 const Nav2: FC = () => {
-  // const router = useRouter();
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -21,12 +12,6 @@ const Nav2: FC = () => {
     setAnchorElUser(null);
   };
 
-  // const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const path = event.target.value;
-  //   if (path) {
-  //     router.push(path);
-  //   }
-  // };
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navLinks = [
@@ -47,26 +32,54 @@ const Nav2: FC = () => {
         },
       ],
     },
-   
+
   ];
-
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <div className="px-6 py-4 shadow-sm flex justify-between items-center ">
-    
+    <div className="px-6 py-4 shadow-sm flex flex-col md:flex-col justify-between items-center">
 
-      <div className="flex gap-4 items-center text-black">
+      <div className="flex flex-row md:flex-row gap-4 items-center text-black">
+      <div className="flex md:hidden items-center">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-black focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div className="text-2xl">
+      <a href="/"><img
+            src="/nav.png"
+            alt="TokenFest logo"
+            width="30px"
+            height="10px"
+          /></a>
+        </div>
+      <div className={`flex-col md:flex md:flex-row gap-4 items-center text-black ${menuOpen ? 'flex' : 'hidden'}`}>
         {navLinks.map((navItem) => (
           <div
             key={navItem.title}
-            className="relative  cursor-pointer"
+            className="relative cursor-pointer"
             onMouseEnter={() => setActiveDropdown(navItem.title)}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             {navItem.title}
             {navItem.subItems && (
               <div
-                className={`absolute left-0 w-48 py-2 px-2  rounded-md shadow-xl  ${activeDropdown === navItem.title ? "block" : "hidden"
-                  }`}
+                className={`absolute left-0 w-48 py-2 px-2 rounded-md shadow-xl bg-white ${activeDropdown === navItem.title ? 'block' : 'hidden'}`}
               >
                 {navItem.subItems.map((subItem) => (
                   <Link
@@ -83,48 +96,18 @@ const Nav2: FC = () => {
         ))}
         <a href="/community/create-community">Community</a>
         <a href="/dashboard/crowdfunding-events">Dashboard</a>
-        <ConnectWallet 
+        <ConnectWallet
           theme={lightTheme({
             colors: { primaryButtonBg: "black" },
           })}
-          style={{ color: "white" ,borderRadius: '9999px' }}
+          style={{ color: "white", borderRadius: '9999px' }}
           className="hover:bg-sky-500"
         />
-        {/* <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="" />
-            </IconButton>
-          </Tooltip>
-          <Menu
-            sx={{ mt: "45px" }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            <List>
-              <a href="/profile"><Button sx={{ color: "grey" }}>Profile</Button></a>
-               <br />
-              <a href="/dashboard/dashboard"><Button sx={{ color: "grey" }}>Dashboard</Button></a>
-              <br />
-              <Button sx={{ color: "grey" }}>Settings</Button>
-              <br />
-              <Button sx={{ color: "rgb(239, 101, 101)" }}>Logout</Button>
-            </List>
-          </Menu>
-        </Box> */}
       </div>
     </div>
+    </div>
+  
+
   );
 };
 

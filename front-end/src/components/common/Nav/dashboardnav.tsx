@@ -1,18 +1,11 @@
 import React, { FC, useState } from "react";
-import { SiWebmoney } from "react-icons/si";
-import Button from "@/components/common/Button";
-import Link from "next/link";
 import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
-import Box from "@mui/material/Box";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import List from "@mui/material/List";
-// import { useRouter } from 'next/navigation';
 
 const DashboardNav: FC = () => {
-  // const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -21,58 +14,68 @@ const DashboardNav: FC = () => {
     setAnchorElUser(null);
   };
 
-  // const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-  //   const path = event.target.value;
-  //   if (path) {
-  //     router.push(path);
-  //   }
-  // };
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-//   const navLinks = [
-//     {
-//       title: "Launch",
-//       subItems: [
-//         { title: "Create Proposal", path: "/launch/create-proposal" },
-//         { title: "Convert Proposal", path: "/launch/convert-proposal" },
-//       ],
-//     },
-
-//   ];
 
   return (
     <div className="px-6 py-4 shadow-sm flex justify-between items-center"
-      style={{ background: "#0F4C81" }}>
-      <div className="flex gap-2 items-center">
-        <div className="text-2xl">
-          <img
-            src="/nav.png"
-            alt=""
-            width="30px"
-            height="10px"
-          />
-        </div>
-        <div className="text-white text-xl font-semibold">
-          <a href="/">TokenFest</a>
-        </div>
-      </div>
+    style={{ background: "#0F4C81" }}>
+ <div className="flex gap-2 items-center">
+   <div className="text-2xl">
+     <img
+       src="/nav.png"
+       alt="TokenFest Logo"
+       width="30px"
+       height="10px"
+     />
+   </div>
+   <div className="text-white text-xl font-semibold">
+     <a href="/">TokenFest</a>
+   </div>
+ </div>
 
-      <div className="flex gap-4 items-center text-white">
-        <a href="/dashboard/crowdfunding-events">Crowd funding events</a>
-        <a href="/dashboard/started-events">Started Events</a>
-        <a href="/dashboard/yourpoaps">Your poaps</a>
-        <ConnectWallet
-          theme={lightTheme({
-            colors: { primaryButtonBg: "white" },
-          })}
-          style={{ color: "black", borderRadius: '9999px' }}
-          className="hover:bg-sky-500"
-          switchToActiveChain={true}
-          modalSize={"wide"}
-          welcomeScreen={{ title: "TokenFest" }}
-        />
-      </div>
-    </div>
+ <div className="hidden md:flex gap-4 items-center text-white">
+   <a href="/dashboard/crowdfunding-events">Crowd funding events</a>
+   <a href="/dashboard/started-events">Started Events</a>
+   <a href="/dashboard/yourpoaps">Your poaps</a>
+   <ConnectWallet
+     theme={lightTheme({
+       colors: { primaryButtonBg: "white" },
+     })}
+     style={{ color: "black", borderRadius: '9999px' }}
+     className="hover:bg-sky-500"
+     switchToActiveChain={true}
+     modalSize={"wide"}
+     welcomeScreen={{ title: "TokenFest" }}
+   />
+ </div>
+
+ <div className="md:hidden flex items-center">
+   <button onClick={toggleMenu} className="text-white focus:outline-none">
+     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+     </svg>
+   </button>
+ </div>
+
+ {menuOpen && (
+   <div className="md:hidden absolute top-16 right-0 bg-white w-full shadow-lg py-4">
+     <a href="/dashboard/crowdfunding-events" className="block px-4 py-2 text-black">Crowd funding events</a>
+     <a href="/dashboard/started-events" className="block px-4 py-2 text-black">Started Events</a>
+     <a href="/dashboard/yourpoaps" className="block px-4 py-2 text-black">Your poaps</a>
+     <ConnectWallet
+       theme={lightTheme({
+         colors: { primaryButtonBg: "white" },
+       })}
+       style={{ color: "black", borderRadius: '9999px' }}
+       className="hover:bg-sky-500 block px-4 py-2"
+       switchToActiveChain={true}
+       modalSize={"wide"}
+       welcomeScreen={{ title: "TokenFest" }}
+     />
+   </div>
+ )}
+</div>
   );
 };
 
