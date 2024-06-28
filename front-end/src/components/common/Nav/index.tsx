@@ -97,6 +97,7 @@ const Nav: FC = () => {
             )}
           </div>
         ))}
+        <a href="/subscription" className="block md:inline">Subscription</a>
         <a href="/community/create-community" className="block md:inline">Community</a>
         <a href="/dashboard/crowdfunding-events" className="block md:inline">Dashboard</a>
       </div>

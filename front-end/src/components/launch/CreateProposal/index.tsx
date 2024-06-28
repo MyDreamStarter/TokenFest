@@ -157,7 +157,7 @@ const CreateProposal = () => {
                 TokenFest Collab
               </Radio>
               <Radio value={"holder"} className="!font-raleway text-black">
-                TokenFest Holder
+                TokenFest Subscription
               </Radio>
             </Radio.Group>
 
