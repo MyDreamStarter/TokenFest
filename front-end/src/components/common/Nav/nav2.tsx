@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import Link from "next/link";
-import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
+
 
 
 const Nav2: FC = () => {
@@ -19,6 +19,7 @@ const Nav2: FC = () => {
       title: "Launch",
       subItems: [
         { title: "Create Proposal", path: "/launch/create-proposal" },
+        { title: "Create Proposal through Frame", path: "/create-frame" },
         { title: "Convert Proposal", path: "/launch/convert-proposal" },
       ],
     },
@@ -96,13 +97,7 @@ const Nav2: FC = () => {
         ))}
         <a href="/community/create-community">Community</a>
         <a href="/dashboard/crowdfunding-events">Dashboard</a>
-        <ConnectWallet
-          theme={lightTheme({
-            colors: { primaryButtonBg: "black" },
-          })}
-          style={{ color: "white", borderRadius: '9999px' }}
-          className="hover:bg-sky-500"
-        />
+        <w3m-button/>
       </div>
     </div>
     </div>

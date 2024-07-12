@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { SiWebmoney } from "react-icons/si";
 import Button from "@/components/common/Button";
 import Link from "next/link";
-import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
 import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
@@ -34,6 +33,7 @@ const Nav3: FC = () => {
       title: "Launch",
       subItems: [
         { title: "Create Proposal", path: "/launch/create-proposal" },
+        { title: "Create Proposal through Frame", path: "/create-frame/" },
         { title: "Convert Proposal", path: "/launch/convert-proposal" },
       ],
     },
@@ -121,14 +121,7 @@ const Nav3: FC = () => {
       <a href="/dashboard/crowdfunding-events" className="block md:inline-block">
         Dashboard
       </a>
-      <ConnectWallet
-        theme={lightTheme({ colors: { primaryButtonBg: 'white' } })}
-        style={{ color: 'black', borderRadius: '9999px' }}
-        className="hover:bg-sky-500"
-        switchToActiveChain={true}
-        modalSize={'wide'}
-        welcomeScreen={{ title: 'TokenFest' }}
-      />
+      <w3m-button/>
     </div>
   </div>
   );

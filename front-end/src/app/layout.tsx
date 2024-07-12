@@ -1,19 +1,15 @@
 "use client";
-
 import "./globals.css";
-
-import {
-  ThirdwebProvider,
-  metamaskWallet,
-  coinbaseWallet,
-  walletConnect,
-  embeddedWallet,
-
-} from "@thirdweb-dev/react";
-import { Sepolia } from "@thirdweb-dev/chains";
 import { ProposalProvider } from "@/ContextProviders/ProposalProvider";
 import { SnackbarProvider, closeSnackbar } from "notistack";
 import { IoClose } from "react-icons/io5";
+import Web3ModalProvider from "./Web3ModalProvider";
+import Providers from "./Web3ModalProvider";
+import './globals.css'
+import './globals.css'
+
+import { cookieToInitialState } from 'wagmi'
+import { config } from "./wagmi";
 
 export default function RootLayout({
   children,
@@ -23,17 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <title>TokenFest</title>
+      <Providers>
       <ProposalProvider>
-        <ThirdwebProvider
-          activeChain={Sepolia}
-          clientId="5be238b6d90aced04e9db46730f231da"
-          supportedWallets={[
-            metamaskWallet(),
-            coinbaseWallet({ recommended: true }),
-            walletConnect(),
-            embeddedWallet(),
-          ]}
-        >
           <SnackbarProvider
             action={(snackbarId) => (
               <button onClick={() => closeSnackbar(snackbarId)}>
@@ -42,11 +29,11 @@ export default function RootLayout({
             )}
           >
             <body className="font-raleway text-sm text-gray-800">
-              <div>{children}</div>
+            <Web3ModalProvider>{children}</Web3ModalProvider>
             </body>
           </SnackbarProvider>
-        </ThirdwebProvider>
       </ProposalProvider>
+      </Providers>
     </html>
   );
 }

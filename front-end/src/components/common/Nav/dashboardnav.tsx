@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
+
 
 const DashboardNav: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,16 +38,7 @@ const DashboardNav: FC = () => {
    <a href="/dashboard/crowdfunding-events">Crowd funding events</a>
    <a href="/dashboard/started-events">Started Events</a>
    <a href="/dashboard/yourpoaps">Your poaps</a>
-   <ConnectWallet
-     theme={lightTheme({
-       colors: { primaryButtonBg: "white" },
-     })}
-     style={{ color: "black", borderRadius: '9999px' }}
-     className="hover:bg-sky-500"
-     switchToActiveChain={true}
-     modalSize={"wide"}
-     welcomeScreen={{ title: "TokenFest" }}
-   />
+   <w3m-button/>
  </div>
 
  <div className="md:hidden flex items-center">
@@ -63,16 +54,7 @@ const DashboardNav: FC = () => {
      <a href="/dashboard/crowdfunding-events" className="block px-4 py-2 text-black">Crowd funding events</a>
      <a href="/dashboard/started-events" className="block px-4 py-2 text-black">Started Events</a>
      <a href="/dashboard/yourpoaps" className="block px-4 py-2 text-black">Your poaps</a>
-     <ConnectWallet
-       theme={lightTheme({
-         colors: { primaryButtonBg: "white" },
-       })}
-       style={{ color: "black", borderRadius: '9999px' }}
-       className="hover:bg-sky-500 block px-4 py-2"
-       switchToActiveChain={true}
-       modalSize={"wide"}
-       welcomeScreen={{ title: "TokenFest" }}
-     />
+     <w3m-button/>
    </div>
  )}
 </div>

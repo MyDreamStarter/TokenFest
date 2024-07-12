@@ -22,7 +22,6 @@ const Crowdfunding = () => {
   const [isMinting, setIsMinting] = useState<boolean>(false);
   const [isStaked, setIsStaked] = useState<boolean>(false);
   const [isStaking, setIsStaking] = useState<boolean>(false);
-  const [StakingDone, setStakingDone] = useState<boolean>(false);
   // ------------------------
   const [salePrice, setSalePrice] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -135,8 +134,6 @@ const Crowdfunding = () => {
 
       await mintTx.wait();
 
-      // display post minting button options
-      setStakingDone(true);
       setIsStaked(true);
       enqueueSnackbar(`Stake is successfully!`, {
         variant: "success",

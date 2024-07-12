@@ -5,15 +5,16 @@ import Lottie from "lottie-react";
 import notFound from "@/components/Empty/notFound.json";
 import Link from "next/link";
 import Button from "@/components/common/Button";
-import { useAddress } from "@thirdweb-dev/react";
+
 import { enqueueSnackbar } from "notistack";
 import Nav3 from "@/components/common/Nav/nav3";
+import { useAccount } from "wagmi";
 
 const Ongoing = () => {
   const [selectedValue, setSelectedValue] = useState<any>(null);
   const { proposal, votes, setVotes, votesPercentage, setVotesPercentage } =
     useProposal();
-  const address = useAddress();
+    const { address: userAddress } = useAccount();
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
@@ -64,7 +65,7 @@ const Ongoing = () => {
             <div className="text-white">Price Per NFT: {proposal.priceperNFT} USDC</div>
             <div className="text-white">Funding Goal: {proposal.funding_goal} USDC</div>
             <div className="text-white">Valid Till: {proposal.date.$d.toDateString()}</div>
-            <div className="text-white">Created by: {address}</div>
+            <div className="text-white">Created by: {userAddress}</div>
 
             {/* -------------------------------------- */}
             <form onSubmit={handleSubmit}>

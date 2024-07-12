@@ -17,6 +17,7 @@ const Nav: FC = () => {
       title: "Launch",
       subItems: [
         { title: "Create Proposal", path: "/launch/create-proposal" },
+        { title: "Create Proposal through Frame", path: "/create-frame" },
         { title: "Convert Proposal", path: "/launch/convert-proposal" },
       ],
     },

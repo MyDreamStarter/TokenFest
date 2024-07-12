@@ -8,7 +8,6 @@ import Modal from "@/components/Modal";
 import "react-toastify/dist/ReactToastify.css";
 import { clearCookies } from "@/libs/utils";
 import Claim from "@/components/Claim";
-import { ConnectWallet } from '@thirdweb-dev/react';
 import DashboardNav from '@/components/common/Nav/dashboardnav';
 
 function Pay() {
@@ -23,7 +22,7 @@ function Pay() {
             <div className="app-container">
                 <h2 className="title">Bonsai Pay Demo</h2>
                 <p className="subtitle">powered by Bonsai™</p>
-                <ConnectWallet />
+                <w3m-button/>
                 <ViewSelection />
                 <h6>
                     Only Google accounts are supported.

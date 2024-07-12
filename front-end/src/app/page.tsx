@@ -1,9 +1,9 @@
 "use client";
-import { ConnectWallet, lightTheme } from "@thirdweb-dev/react";
 import { SiWebmoney } from "react-icons/si";
 import { FaDiscord, FaXTwitter } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
 import Nav from "@/components/common/Nav";
+import { lightTheme } from "@thirdweb-dev/react";
 
 
 export default function Home() {
@@ -16,13 +16,7 @@ export default function Home() {
       }}>
         <div className="flex justify-center items-center h-[50px] w-[150px] my-10 mx-10">
           <button>
-            <ConnectWallet
-              theme={lightTheme({
-                colors: { primaryButtonBg: "white" },
-              })}
-              style={{ color: "black", borderRadius: '9999px' }}
-              className="hover:bg-sky-500"
-            />
+            <w3m-button/>
           </button>
         </div>
 
@@ -49,13 +43,7 @@ export default function Home() {
             <h1 className="p-6 text-black font-raleway font-medium text-lg">Crowdfund Your Next Big Event with Us</h1>
 
             <button className="mx-6">
-              <ConnectWallet
-                theme={lightTheme({
-                  colors: { primaryButtonBg: "white" },
-                })}
-                style={{ color: "black", borderRadius: '9999px', border: '1.5px solid black' }}
-                className="hover:bg-sky-500"
-              />
+              <w3m-button/>
             </button>
 
             <div className="my-20 mx-6">
@@ -114,13 +102,7 @@ export default function Home() {
         <div className="bg-blue-200 h-[400px] w-full md:w-[700px] mt-16 md:mt-44 p-4 md:p-8">
           <h1 className="text-black font-raleway font-medium text-3xl md:text-4xl mt-12 md:mt-28 mx-4 md:mx-20">Create Communities, <br />Launch Events Effortlessly</h1>
           <button className="mx-4 md:mx-20 mt-8">
-            <ConnectWallet
-              theme={lightTheme({
-                colors: { primaryButtonBg: "#0F4C81" },
-              })}
-              style={{ color: "white", borderRadius: '9999px' }}
-              className="hover:bg-sky-500"
-            />
+          <w3m-button/>
           </button>
         </div>
         <div className="h-[400px] w-full md:w-[450px] mt-16 md:mt-44" style={{
