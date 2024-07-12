@@ -1,0 +1,11 @@
+{
+    "contractName" : "TokenFestCollab",
+    "constructorParams":{
+            "param1" :"0x83AD8ddAdb013fbA80DE0d802FD4fB1a949AD79f",
+            "param2" :"Globe Music Fest",
+            "param3" : "GMF",
+            "param4" : ["1000000000000000000",0,86400,"100000000000000000"],
+            "param5" : "www.xyz.com",
+            "param6" : ["0x8563F7BD1fa85cB75EFB8e710D3971dC3e3C5C8b","0x9ED633909c16c9A6181B2D96fd54B9D35e4deffE"]
+        }
+}
