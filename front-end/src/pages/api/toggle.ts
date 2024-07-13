@@ -63,8 +63,8 @@ export default async function handler(
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${currentItem.url}">
           <meta name="fc:frame:post_url" content="${process.env.HOST}/api/toggle?id=${id}${next}">
-          <meta name="fc:frame:button:1" content="Prev">
-          <meta name="fc:frame:button:2" content="Next">
+          <meta name="fc:frame:button:1" content="Mint">
+          <meta name="fc:frame:button:1:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events'>
           ${showReadMore ? `
             <meta name="fc:frame:button:3" content="${values.readmore?.label ?? 'Read More'}">
             <meta name="fc:frame:button:3:action" content="link">
@@ -76,8 +76,8 @@ export default async function handler(
           <meta property="of:accepts:lens" content="1.1">
           <meta name="of:image" content="${currentItem.url}">
           <meta name="of:post_url" content="${process.env.HOST}/api/toggle?id=${id}${next}">
-          <meta name="of:button:1" content="Prev">
-          <meta name="of:button:2" content="Next">
+          <meta name="of:button:1" content="Mint">
+          <meta name="fc:frame:button:1:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events'>
           ${showReadMore ? `
             <meta name="of:button:3" content="${values.readmore?.label ?? 'Read More'}">
             <meta name="of:button:3:action" content="link">

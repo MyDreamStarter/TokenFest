@@ -4,6 +4,7 @@ import Link from "next/link";
 
 // Opt out of caching for all data requests in the route segment
 export const dynamic = "force-dynamic";
+
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -46,6 +47,7 @@ export async function generateMetadata(
     "fc:frame:button:1": "DisLike",
     "fc:frame:button:2": "Like",
     "fc:frame:button:3": "Mint",
+    "fc:frame:button:3:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events', // Add URL for the Mint button
     "fc:frame:image:aspect_ratio": imageData.frameRatio,
     "of:version": "vNext",
     "of:image": `${imageData.image}`,
@@ -53,6 +55,7 @@ export async function generateMetadata(
     "of:button:1": "DisLike",
     "of:button:2": "Like",
     "of:button:3": "Mint",
+    "of:button:3:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events', // Add URL for the Mint button
     "of:post_url": `${process.env["HOST"]}/api/toggle?id=${id}1`,
     "of:image:aspect_ratio": imageData.frameRatio,
     "of:accepts:xmtp": "2024-02-01",
@@ -71,8 +74,6 @@ export async function generateMetadata(
     metadataBase: new URL(process.env["HOST"] || ""),
   };
 }
-
-
 
 export default function Page({ params }: { params: { id: string } }) {
   const id = params.id;
