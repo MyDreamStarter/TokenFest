@@ -42,12 +42,11 @@ export async function generateMetadata(
 
   const fcMetadata: Record<string, string> = {
     "fc:frame": "vNext",
-    "fc:frame:post_url": `${process.env["HOST"]}/api/toggle?id=${id}1`,
+    "fc:frame:post_url": 'https://tokenfest.vercel.app/explore/convert-proposal',
     "fc:frame:image": `${imageData.image}`,
     "fc:frame:button:1": "DisLike",
     "fc:frame:button:2": "Like",
     "fc:frame:button:3": "Mint",
-    "fc:frame:button:3:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events', // Add URL for the Mint button
     "fc:frame:image:aspect_ratio": imageData.frameRatio,
     "of:version": "vNext",
     "of:image": `${imageData.image}`,
@@ -55,8 +54,7 @@ export async function generateMetadata(
     "of:button:1": "DisLike",
     "of:button:2": "Like",
     "of:button:3": "Mint",
-    "of:button:3:url": 'https://tokenfest.vercel.app/explore/crowdfunding-events', // Add URL for the Mint button
-    "of:post_url": `${process.env["HOST"]}/api/toggle?id=${id}1`,
+    "of:post_url": 'https://tokenfest.vercel.app/explore/convert-proposal',
     "of:image:aspect_ratio": imageData.frameRatio,
     "of:accepts:xmtp": "2024-02-01",
     "of:accepts:lens": "1.1",
