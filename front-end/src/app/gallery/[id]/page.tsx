@@ -4,7 +4,6 @@ import Link from "next/link";
 
 // Opt out of caching for all data requests in the route segment
 export const dynamic = "force-dynamic";
-
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -42,7 +41,7 @@ export async function generateMetadata(
 
   const fcMetadata: Record<string, string> = {
     "fc:frame": "vNext",
-    "fc:frame:post_url": 'https://tokenfest.vercel.app/explore/convert-proposal',
+    "fc:frame:post_url": "https://tokenfest.vercel.app/launch/convert-proposal",
     "fc:frame:image": `${imageData.image}`,
     "fc:frame:button:1": "DisLike",
     "fc:frame:button:2": "Like",
@@ -54,7 +53,7 @@ export async function generateMetadata(
     "of:button:1": "DisLike",
     "of:button:2": "Like",
     "of:button:3": "Mint",
-    "of:post_url": 'https://tokenfest.vercel.app/explore/convert-proposal',
+    "of:post_url": "https://tokenfest.vercel.app/launch/convert-proposal",
     "of:image:aspect_ratio": imageData.frameRatio,
     "of:accepts:xmtp": "2024-02-01",
     "of:accepts:lens": "1.1",
@@ -72,6 +71,8 @@ export async function generateMetadata(
     metadataBase: new URL(process.env["HOST"] || ""),
   };
 }
+
+
 
 export default function Page({ params }: { params: { id: string } }) {
   const id = params.id;

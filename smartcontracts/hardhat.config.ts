@@ -23,15 +23,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 });
 
 // TESTNET
-const MATICMUM_RPC_URL = process.env.MATICMUM_RPC_URL || "https://polygon-mumbai.g.alchemy.com/v2/api-key"
+const MATICMUM_RPC_URL = process.env.MATICMUM_RPC_URL || "https://baseSepolia-mumbai.g.alchemy.com/v2/api-key"
 const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL || "https://ETH-RPC-URL"
 // MAINNET
-const POLYGON_RPC_URL = process.env.POLYGON_RPC_URL || "https://polygon-mainnet.g.alchemy.com/v2/api-key"
+const baseSepolia_RPC_URL = process.env.baseSepolia_RPC_URL || "https://baseSepolia-mainnet.g.alchemy.com/v2/api-key"
 
 const MNEMONIC = process.env.MNEMONIC || "ajkskjfjksjkf ssfaasff asklkfl klfkas dfklhao asfj sfk klsfjs fkjs"
 const PRIVATE_KEY = process.env.PRIVATE_KEY
 
-const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || "lklsdkskldjklgdklkld"
+const baseSepoliaSCAN_API_KEY = process.env.baseSepoliaSCAN_API_KEY || "lklsdkskldjklgdklkld"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "Etherscan API key"
 
 
@@ -68,9 +68,9 @@ module.exports = {
       // },
     },
     // MAINNET NETWORKS
-    polygon: {
+    baseSepolia: {
       networkId: 137,
-      url: POLYGON_RPC_URL,
+      url: baseSepolia_RPC_URL,
       // accounts: [`0x${ETH_PRIVATE_KEY}`],
       accounts: {
         mnemonic: MNEMONIC,
@@ -83,7 +83,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      polygonMumbai : POLYGONSCAN_API_KEY,
+      baseSepoliaMumbai : baseSepoliaSCAN_API_KEY,
       sepolia : ETHERSCAN_API_KEY
     },
   },
