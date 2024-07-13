@@ -63,9 +63,8 @@ export default async function handler(
           <meta name="fc:frame" content="vNext">
           <meta name="fc:frame:image" content="${currentItem.url}">
           <meta name="fc:frame:button:1" content="Mint">
-          <meta property="fc:frame:button:1:action" content="post_redirect" />
-          <meta name="fc:frame:post_url" content="https://tokenfest.vercel.app/launch/convert-proposal">
-
+          <meta name="fc:frame:button:1:action" content="link">
+          <meta name="fc:frame:button:1:target" content="https://tokenfest.vercel.app/launch/convert-proposal">
           
           ${showReadMore ? `
             <meta name="fc:frame:button:3" content="${values.readmore?.label ?? 'Read More'}">
@@ -78,8 +77,8 @@ export default async function handler(
           <meta property="of:accepts:lens" content="1.1">
           <meta name="of:image" content="${currentItem.url}">
           <meta name="of:button:1" content="Mint">
-          <meta property="fc:frame:button:1:action" content="post_redirect" />
-          <meta name="fc:frame:post_url" content="https://tokenfest.vercel.app/launch/convert-proposal">
+          <meta name="fc:frame:button:1:action" content="link">
+          <meta name="fc:frame:button:1:target" content="https://tokenfest.vercel.app/launch/convert-proposal">
           ${showReadMore ? `
             <meta name="of:button:3" content="${values.readmore?.label ?? 'Read More'}">
             <meta name="of:button:3:action" content="link">
